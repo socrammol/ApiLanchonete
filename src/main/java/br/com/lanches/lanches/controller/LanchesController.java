@@ -9,19 +9,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.lanches.lanches.dto.PedidoDTO;
 import br.com.lanches.lanches.service.PedidoService;
+
 @RestController
 @RequestMapping("/lanche")
 @CrossOrigin(origins = { "http://localhost:8081" }, allowCredentials = "true")
 public class LanchesController {
 	@Autowired
 	PedidoService pedidoService;
-	
-	
+
 	@PostMapping
 	public double criaLanches(@RequestBody PedidoDTO pedido) {
-		
+
 		return pedidoService.calculaPedido(pedido);
-		
+
 	}
-	
+
 }
