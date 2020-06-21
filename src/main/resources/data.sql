@@ -1,0 +1,1 @@
+INSERT INTO Valor_Ingredientes (alface,bacon,hamburguer,ovo,queijo) VALUES (0.40 , 2.00, 3.00 , 0.80, 1.50 )
