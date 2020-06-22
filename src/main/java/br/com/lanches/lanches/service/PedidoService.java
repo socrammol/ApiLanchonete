@@ -25,22 +25,22 @@ public class PedidoService {
 
 		if (pedido.getXbancon() > 0) {
 			XBancon xbacon = new XBancon();
-			soma += BuscaValor(xbacon.getIngredientes(), valores);
+			soma += buscaValor(xbacon.getIngredientes(), valores);
 		}
 
 		if (pedido.getXburguer() > 0) {
 			XBurger xburger = new XBurger();
-			soma += BuscaValor(xburger.getIngredientes(), valores);
+			soma += buscaValor(xburger.getIngredientes(), valores);
 		}
 
 		if (pedido.getXegg() > 0) {
 			XEgg xegg = new XEgg();
-			soma += BuscaValor(xegg.getIngredientes(), valores);
+			soma += buscaValor(xegg.getIngredientes(), valores);
 		}
 
 		if (pedido.getXeggbacon() > 0) {
 			XEggBacon xEggBacon = new XEggBacon();
-			soma += BuscaValor(xEggBacon.getIngredientes(), valores);
+			soma += buscaValor(xEggBacon.getIngredientes(), valores);
 		}
 		if (pedido.getIngredientes() != null) {
 			soma = verificaValorPedidoPersonalizado(pedido.getIngredientes(), valores);
@@ -52,20 +52,16 @@ public class PedidoService {
 	private double verificaValorPedidoPersonalizado(IngredientesDTO ingredientes, Optional<ValorIngredientes> valores) {
 		double soma = 0;
 		int resto = 0;
-		
-		if (ingredientes.getHamburguer() > 0) {
-			if (ingredientes.getHamburguer() % 3 == 0) {
-				resto = ingredientes.getHamburguer() / 3;
-				ingredientes.setHamburguer(ingredientes.getHamburguer() - resto);
-			}
+
+		if (ingredientes.getHamburguer() % 3 == 0) {
+			resto = ingredientes.getHamburguer() / 3;
+			ingredientes.setHamburguer(ingredientes.getHamburguer() - resto);
 		}
-		if (ingredientes.getQueijo() > 0) {
-			if (ingredientes.getQueijo() % 3 == 0) {
-				resto = ingredientes.getQueijo() / 3;
-				ingredientes.setQueijo(ingredientes.getQueijo() - resto);
-			} 
+		if (ingredientes.getQueijo() % 3 == 0) {
+			resto = ingredientes.getQueijo() / 3;
+			ingredientes.setQueijo(ingredientes.getQueijo() - resto);
 		}
-		soma = BuscaValor(ingredientes,valores);
+		soma = buscaValor(ingredientes, valores);
 		if (ingredientes.getAlface() > 0 && ingredientes.getBacon() == 0) {
 			soma = soma * 0.90;
 		}
@@ -73,13 +69,15 @@ public class PedidoService {
 
 	}
 
-	private double BuscaValor(IngredientesDTO ingredientes, Optional<ValorIngredientes> valores) {
-
-		return ((ingredientes.getAlface() * valores.get().getAlface())
-				+ (ingredientes.getBacon() * valores.get().getBacon())
-				+ (ingredientes.getHamburguer() * valores.get().getHamburguer())
-				+ (ingredientes.getOvo() * valores.get().getOvo())
-				+ (ingredientes.getQueijo() * valores.get().getQueijo()));
+	private double buscaValor(IngredientesDTO ingredientes, Optional<ValorIngredientes> valores) {
+		if (valores.isPresent()) {
+			return ((ingredientes.getAlface() * valores.get().getAlface())
+					+ (ingredientes.getBacon() * valores.get().getBacon())
+					+ (ingredientes.getHamburguer() * valores.get().getHamburguer())
+					+ (ingredientes.getOvo() * valores.get().getOvo())
+					+ (ingredientes.getQueijo() * valores.get().getQueijo()));
+		}
+		return 0;
 	}
 
 }
