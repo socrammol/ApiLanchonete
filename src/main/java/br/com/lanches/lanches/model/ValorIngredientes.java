@@ -1,5 +1,7 @@
 package br.com.lanches.lanches.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -9,7 +11,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 @Entity
-public class ValorIngredientes {
+public class ValorIngredientes implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@ApiModelProperty(value = "ID dos valores dos ingredientes no banco")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -81,6 +87,11 @@ public class ValorIngredientes {
 	public String toString() {
 		return "Ingredientes [alface=" + alface + ", bacon=" + bacon + ", hamburguer=" + hamburguer + ", ovo=" + ovo
 				+ ", queijo=" + queijo + "]";
+	}
+
+	public Long getId() {
+		
+		return id;
 	}
 
 }

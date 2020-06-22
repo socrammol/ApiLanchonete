@@ -8,8 +8,7 @@ import br.com.lanches.lanches.repository.IngredientesRepository;
 
 @SpringBootTest
 class LanchesApplicationTests {
-	@Autowired
-	IngredientesRepository ingredientesRepository;
+	
 
 	@Test
 	void contextLoads() {

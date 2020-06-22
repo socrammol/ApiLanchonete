@@ -22,9 +22,11 @@ public class LanchesController {
 		    @ApiResponse(code = 200, message = "Retorna o valor do sanduiche"),
 		})
 	@PostMapping(produces = "application/json",consumes="application/json")
-	public double criaLanches(@RequestBody PedidoDTO pedido) {
+	public String criaLanches(@RequestBody PedidoDTO pedido) {
 
-		return pedidoService.calculaPedido(pedido);
+		double valor = pedidoService.calculaPedido(pedido);
+		String total = "o valor a ser pago e: R$" + valor;
+		return total;
 
 	}
 

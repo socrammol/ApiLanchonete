@@ -20,28 +20,28 @@ public class PrecosService {
 	}
 
 	public Optional<ValorIngredientes> alteraValor(ValoresDTO valores) {
-		Optional<ValorIngredientes> va = ingredientesRepository.findById(1L);
-		if (va.isPresent() && valores != null) {
+		Optional<ValorIngredientes> valorIngredientes = ingredientesRepository.findById(1L);
+		if (valorIngredientes.isPresent() && valores != null) {
 
 			if (valores.getAlface() > 0) {
-				va.get().setAlface(valores.getAlface());
+				valorIngredientes.get().setAlface(valores.getAlface());
 			}
 			if (valores.getBacon() > 0) {
-				va.get().setBacon(valores.getBacon());
+				valorIngredientes.get().setBacon(valores.getBacon());
 			}
 			if (valores.getHamburguer() > 0) {
-				va.get().setHamburguer(valores.getHamburguer());
+				valorIngredientes.get().setHamburguer(valores.getHamburguer());
 			}
 			if (valores.getOvo() > 0) {
-				va.get().setOvo(valores.getOvo());
+				valorIngredientes.get().setOvo(valores.getOvo());
 			}
 			if (valores.getQueijo() > 0) {
-				va.get().setQueijo(valores.getQueijo());
+				valorIngredientes.get().setQueijo(valores.getQueijo());
 			}
-			ingredientesRepository.save(va.get());
+			ingredientesRepository.save(valorIngredientes.get());
 		}
 
-		return va;
+		return valorIngredientes;
 	}
 
 }
