@@ -2,18 +2,27 @@ package br.com.lanches.lanches.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 @Entity
 public class ValorIngredientes {
+	@ApiModelProperty(value = "ID dos valores dos ingredientes no banco")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@ApiModelProperty(value = "Alface")
 	private double alface;
+	@ApiModelProperty(value = "Bacon")
 	private double bacon;
+	@ApiModelProperty(value = "Hamburger")
 	private double hamburguer;
+	@ApiModelProperty(value = "OVO")
 	private double ovo;
+	@ApiModelProperty(value = "Queijo")
 	private double queijo;
 
 	public ValorIngredientes() {

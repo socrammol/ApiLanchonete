@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.lanches.lanches.dto.PedidoDTO;
 import br.com.lanches.lanches.service.PedidoService;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
 @RestController
 @RequestMapping("/lanche")
@@ -16,8 +18,10 @@ import br.com.lanches.lanches.service.PedidoService;
 public class LanchesController {
 	@Autowired
 	PedidoService pedidoService;
-
-	@PostMapping
+	@ApiResponses(value = {
+		    @ApiResponse(code = 200, message = "Retorna o valor do sanduiche"),
+		})
+	@PostMapping(produces = "application/json",consumes="application/json")
 	public double criaLanches(@RequestBody PedidoDTO pedido) {
 
 		return pedidoService.calculaPedido(pedido);
