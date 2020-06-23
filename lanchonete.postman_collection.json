@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "dd28db70-5b73-47fa-9396-37e437a76571",
+		"name": "lanchonete",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ComprarProdutos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ingredientes\":{\n\t\t\"alface\":\"1\",\n\t\t\"bacon\":\"\",\n\t\t\"hamburguer\":\"1\",\n\t\t\"ovo\":\"1\",\n\t\t\"queijo\":\"1\"\n\t},\n\t\"xbancon\":\"\",\n\t\"xburguer\":\"\",\n\t\"xegg\":\"\",\n\t\"xeggbacon\":\"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/lanche",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"lanche"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BuscaValores",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "aletarar valores",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"alface\": \"1.1\",\r\n    \"bacon\": \"\",\r\n    \"hamburguer\": \"\",\r\n    \"ovo\": \"\",\r\n    \"queijo\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/preco",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"preco"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
