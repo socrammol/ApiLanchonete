@@ -16,6 +16,8 @@
 4. O banco ja está configurado para criar a tabela de preços ja populada, caso seja necessario pode-se trocar os valores via rest
 5. Segue o modelo via Postaman na pasta raiz do projeto
 6. O Usuario para utilizar a API e teste e a Snha e 123
+7. Caso seja necessario acessar o banco o endereço e http://localhost:8081/h2
+8. Caso seja necessario acessar o Swagger o endereço e http://localhost:8081/swagger-ui.html
 
 
 
